@@ -11,7 +11,7 @@ namespace LibClass
     public class Person
     {
         //TODO: RSDN
-        private string _Name;
+        private string _name;
 
         /// <summary>
         /// Имя человека
@@ -20,7 +20,7 @@ namespace LibClass
         {
             get
             {
-                return _Name;
+                return _name;
             }
             set
             {
@@ -29,7 +29,7 @@ namespace LibClass
                     throw new ArgumentNullException(
                         string.Format("{0} is null or empty!", value));
                 }
-                _Name = value;
+                _name = value;
             }
         }
 
