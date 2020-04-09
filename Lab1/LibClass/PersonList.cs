@@ -6,11 +6,17 @@ using System.Text;
 namespace LibClass
 {
     //TODO: XML
+    /// <summary>
+    /// Класс списка персон
+    /// </summary>
     public class PersonList
     {
         //TODO: XML
         //TODO: RSDN
-        private Person[] PersonArray = new Person[0];
+        /// <summary>
+        /// Список людей
+        /// </summary>
+        private Person[] _personArray = new Person[0];
 
         /// <summary>
         /// Добавление нового человека
@@ -18,18 +24,18 @@ namespace LibClass
         /// <param name="person"></param>
         public void AddPerson (Person person)
         {
-            int NumberofPerson = PersonArray.Length;
+            int NumberofPerson = _personArray.Length;
 
             Person[] newArray = new Person[NumberofPerson + 1];
 
             for (int i = 0; i < NumberofPerson; i++)
             {
-                newArray[i] = this.PersonArray[i];
+                newArray[i] = this._personArray[i];
             }
 
             newArray[NumberofPerson] = person;
 
-            PersonArray = newArray;
+            _personArray = newArray;
         }
 
         /// <summary>
@@ -49,7 +55,7 @@ namespace LibClass
         /// </summary>
         public void DeleteAllPerson()
         {
-            Array.Resize(ref PersonArray, 0);
+            Array.Resize(ref _personArray, 0);
         }
 
         /// <summary>
@@ -58,11 +64,11 @@ namespace LibClass
         /// <param name="index"></param>
         public void DeletePerson(int index)
         {
-            for (int i=index;  i< PersonArray.Length-1; i++)
+            for (int i=index;  i< _personArray.Length-1; i++)
             {
-                PersonArray[i] = PersonArray[i + 1];
+                _personArray[i] = _personArray[i + 1];
             }
-            Array.Resize(ref PersonArray, PersonArray.Length-1);
+            Array.Resize(ref _personArray, _personArray.Length-1);
         }
 
         /// <summary>
@@ -72,9 +78,9 @@ namespace LibClass
         /// <returns></returns> возвращает значение по указанному индексу
         public Person GetByIndex (int ind)
         {
-            if (0 <= ind && ind < PersonArray.Length)
+            if (0 <= ind && ind < _personArray.Length)
             {
-                return PersonArray[ind];
+                return _personArray[ind];
             }
             else
             {
@@ -89,12 +95,12 @@ namespace LibClass
         /// <returns></returns>
         public int IndexOf(Person person)
         {
-            for (int i = 0; i < PersonArray.Length; i++)
+            for (int i = 0; i < _personArray.Length; i++)
             {
-                if (PersonArray[i].Name == person.Name &&
-                    PersonArray[i].LastName == person.LastName &&
-                    PersonArray[i].Age == person.Age &&
-                   PersonArray[i].Gender == person.Gender)
+                if (_personArray[i].Name == person.Name &&
+                    _personArray[i].LastName == person.LastName &&
+                    _personArray[i].Age == person.Age &&
+                   _personArray[i].Gender == person.Gender)
                 {
                     return i;
                 }
@@ -108,7 +114,7 @@ namespace LibClass
         {
             get
             {
-                return PersonArray.Length;
+                return _personArray.Length;
             }
             
         }
