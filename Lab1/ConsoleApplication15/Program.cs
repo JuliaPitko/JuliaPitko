@@ -7,14 +7,21 @@ using LibClass;
 namespace Laba1
 {
     //TODO: XML
+    /// <summary>
+    /// Основной класс 
+    /// </summary>
     public class Program
     {
         //TODO: XML
+        /// <summary>
+        /// Проверка кода
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             //TODO: RSDN
-            var FirstListOfPerson = new PersonList();
-            var SecondListOfPerson = new PersonList();
+            var firstListOfPerson = new PersonList();
+            var secondListOfPerson = new PersonList();
             
             var FirstList = new Person[]
             {
@@ -29,35 +36,35 @@ namespace Laba1
                 new Person("Anna", "Darhanova",23,Gender.Female),
                 new Person("Julia","Pitko",24,Gender.Female),
             };
-            FirstListOfPerson.AddRangePeople(FirstList);
-            SecondListOfPerson.AddRangePeople(SecondList);
+            firstListOfPerson.AddRangePeople(FirstList);
+            secondListOfPerson.AddRangePeople(SecondList);
             
-            PersonListConsoleView(FirstListOfPerson, nameof(FirstList));
-            PersonListConsoleView(SecondListOfPerson, nameof(SecondList));
+            PersonListConsoleView(firstListOfPerson, nameof(FirstList));
+            PersonListConsoleView(secondListOfPerson, nameof(SecondList));
             Console.ReadKey();
 
-            FirstListOfPerson.AddPerson(new Person("Артем", "Жиленков",
+            firstListOfPerson.AddPerson(new Person("Артем", "Жиленков",
                24, Gender.Male));
             Console.WriteLine("Добавление нового человека");
-            PersonListConsoleView(FirstListOfPerson, nameof(FirstList));
+            PersonListConsoleView(firstListOfPerson, nameof(FirstList));
             Console.ReadKey();
 
             Console.WriteLine("Копирование человека из первого списка во второй");
-            SecondListOfPerson.AddPerson(FirstListOfPerson.GetByIndex(1));
-            PersonListConsoleView(FirstListOfPerson, nameof(FirstList));
-            PersonListConsoleView(SecondListOfPerson, nameof(SecondList));
+            secondListOfPerson.AddPerson(firstListOfPerson.GetByIndex(1));
+            PersonListConsoleView(firstListOfPerson, nameof(FirstList));
+            PersonListConsoleView(secondListOfPerson, nameof(SecondList));
             Console.ReadKey();
 
             Console.WriteLine("Удаление второго человека из первого списка");
-            FirstListOfPerson.DeletePerson(1);
-            PersonListConsoleView(FirstListOfPerson, nameof(FirstList));
-            PersonListConsoleView(SecondListOfPerson, nameof(SecondList));
+            firstListOfPerson.DeletePerson(1);
+            PersonListConsoleView(firstListOfPerson, nameof(FirstList));
+            PersonListConsoleView(secondListOfPerson, nameof(SecondList));
             Console.ReadKey();
 
             Console.WriteLine("Очистка второго списка");
-            SecondListOfPerson.DeleteAllPerson();
-            PersonListConsoleView(FirstListOfPerson, nameof(FirstList));
-            PersonListConsoleView(SecondListOfPerson, nameof(SecondList));
+            secondListOfPerson.DeleteAllPerson();
+            PersonListConsoleView(firstListOfPerson, nameof(FirstList));
+            PersonListConsoleView(secondListOfPerson, nameof(SecondList));
             Console.ReadKey();
         }
 
