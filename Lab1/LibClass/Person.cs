@@ -34,16 +34,16 @@ namespace LibClass
         }
 
         //TODO: RSDN//TODO: XML
-        private string _LastName;
+        private string _lastName;
 
         /// <summary>
         /// Фамилия человека
-        /// </summary>
+        /// </summary> возвращает фамилию человка </summary>
         public string LastName
         {
             get
             {
-                return _LastName;
+                return _lastName;
             }
             set
             {
@@ -52,28 +52,28 @@ namespace LibClass
                     throw new ArgumentNullException(
                         string.Format("{0} is null or empty!", value));
                 }
-                _LastName = value;
+                _lastName = value;
             }
         }
 
         //TODO: XML//TODO: RSDN
-        private int _Age;
+        private int _age;
 
         /// <summary>
         /// Возраст человека
-        /// </summary>
+        /// </summary> проверяет возраст на границу </summary>  
         public int Age
         {
             get 
             {
-                return _Age;
+                return _age;
             }
             private set
             {
                 //TODO: Ограничение сверху
-                if (value >= 0)
+                if (value >= 0 || value <= 125)
                 {
-                    _Age = value;
+                    _age = value;
                 }
                 else
                 {
@@ -83,9 +83,19 @@ namespace LibClass
         }
         
         //TODO: XML
+        /// <summary>
+        /// Свойство пол
+        /// </summary> 
         public Gender Gender { get; set; } 
 
         //TODO: XML
+       /// <summary>
+       /// Конструктор класса
+       /// </summary>
+       /// <param name="firstName">Параметр имени</param>
+       /// <param name="lastName">Параметр фамилии</param>
+       /// <param name="age">Параметр возраста</param>
+       /// <param name="gender">Параметр пол</param>
         public Person(string firstName, string lastName, int age, Gender gender)
         {
             Name = firstName;
