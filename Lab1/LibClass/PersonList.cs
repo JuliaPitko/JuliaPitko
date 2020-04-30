@@ -118,6 +118,16 @@ namespace LibClass
             }
             
         }
+
+        public string[] InfoAboutAllPerson()
+        {
+            string[] array = new string[_personArray.Length];
+            for (int i = 0; i < _personArray.Length; i++)
+            {
+                array[i] = _personArray[i].Info;
+            }
+            return array;
+        }
        
     }
 }

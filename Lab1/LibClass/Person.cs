@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LibClass
 {
@@ -24,12 +25,8 @@ namespace LibClass
             }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException(
-                        string.Format("{0} is null or empty!", value));
-                }
-                _name = value;
+                CheckCorrectOfName(value);
+                _name = CheckRegister(value);
             }
         }
 
@@ -47,12 +44,8 @@ namespace LibClass
             }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException(
-                        string.Format("{0} is null or empty!", value));
-                }
-                _lastName = value;
+                CheckCorrectOfName(value);
+                _lastName = CheckRegister(value);
             }
         }
 
@@ -68,17 +61,15 @@ namespace LibClass
             {
                 return _age;
             }
-            private set
+            set
             {
                 //TODO: Ограничение сверху
-                if (value >= 0 || value <= 125)
+                if (value < 0 || value >= 125)
                 {
-                    _age = value;
+                    throw new ArgumentOutOfRangeException(
+                        $"{nameof(value)} Возраст от 0 до 125!");
                 }
-                else
-                {
-                    throw new Exception();
-                }
+                _age = value;
             }
         }
         
@@ -115,6 +106,60 @@ namespace LibClass
                     LastName + ".   \tВозраст: " + Age + ".\tПол: " +
                     Gender + "."; ;
             }
+        }
+        public static string CheckCorrectOfName (string value)
+        {
+            /*if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentNullException(
+                      string.Format("{0} is null or empty!", value));
+            }*/
+            if (value == string.Empty)
+            {
+                throw new Exception("Необходимо ввести данные!");
+            }
+            else 
+            {
+                var eng = new Regex (@"[A-Z] + [a-z]+");
+                var rus = new Regex (@"[А - Я] + [а - я]+");
+                var numbers = new Regex(@"[0-9]");
+                if ((eng.IsMatch(value) && rus.IsMatch(value)))
+                {
+                    throw new ArgumentException ("Имя и Фамилия только"+
+                        "на русском или английском языке! Повторите:");
+                }
+                if (numbers.IsMatch(value))
+                {
+                    throw new ArgumentException("Имя и фамилия не должны" +
+                        "содержать цифр! Повторите ввод");
+                }
+                else
+                {
+                    return value;
+                }
+            }
+        }
+        public string CheckRegister(string value)
+        {
+            string FirstLetterToUpper(string word)
+            {
+                return word.Substring(0, 1).ToUpper() +
+                    word.Substring(1, word.Length - 1).ToLower();
+            }
+
+            var symbols = new[] { "-", " " };
+            foreach (var symbol in symbols)
+            {
+                if (value.Contains(symbol))
+                {
+                    string[] words = value.Split(symbol.ToCharArray()[0]);
+                    return words.Length > 1
+                        ? $"{FirstLetterToUpper(words[0])}" +
+                        $"{symbol}{FirstLetterToUpper(words[1])}"
+                        : FirstLetterToUpper(value);
+                }
+            }
+            return FirstLetterToUpper(value);
         }
     }
 }

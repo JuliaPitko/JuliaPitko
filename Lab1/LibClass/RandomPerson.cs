@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibClass
 {
-    class RandomPerson
+    public class RandomPerson
     {
         public static Person GetRandomPerson()
         {
