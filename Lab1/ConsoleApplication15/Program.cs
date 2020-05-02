@@ -7,21 +7,19 @@ using System.Text.RegularExpressions;
 
 namespace Laba1
 {
-    //TODO: XML (исправлено)
     /// <summary>
     /// Основной класс 
     /// </summary>
     public class Program
     {
         #region Проверка кода
-        //TODO: XML (исправлено)
+
         /// <summary>
         /// Проверка кода
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">Аргументы</param>
         static void Main(string[] args)
         {
-            //TODO: RSDN (исправлено)
             var firstListOfPerson = new PersonList();
             var secondListOfPerson = new PersonList();
             
@@ -84,23 +82,25 @@ namespace Laba1
                     Console.WriteLine($"Ошибка: {e.Message}");
                 }
             }
+            Console.WriteLine("\n");
             Console.WriteLine(man.Info);
             secondListOfPerson.AddPerson(man);
             secondListOfPerson.InfoAboutAllPerson();
             Console.ReadKey();
 
+            
             Console.WriteLine("Случайная генерация человека");
-
-            while (true)
+           
+            while (true && (Console.ReadKey(true).Key != ConsoleKey.Escape))
             {
                 var person = RandomPerson.GetRandomPerson();
                 secondListOfPerson.AddPerson(person);
                 secondListOfPerson.InfoAboutAllPerson();
                 Console.WriteLine(person.Info);
-                Console.ReadKey();
-
+                Console.WriteLine("Нажмите Esc что бы выйти");
             }
         }
+
         #endregion
         /// <summary>
         /// Ввод человека
@@ -108,13 +108,13 @@ namespace Laba1
         /// <returns>Возвращает параметры человека</returns>
         public static Person KeyboardInput ()
         {
-            var name = GetCorrectString("Введите имя: ");
-            var lastName = GetCorrectString("Введите фамилию: ");
+            var name = CheckCorrectnessOfNames("Введите имя: ");
+            var lastName = CheckCorrectnessOfNames("Введите фамилию: ");
             int age = GetCorrectInt("Введите возраст: ");
-            int vvodGender = GetCorrectInt("Введите пол: 0 - Male," +
-                " 1 - Female");
+            int keyGender = GetCorrectGender("Введите пол: 0 - Male," +
+                " 1 - Female:");
             Gender gender = Gender.Male;
-            switch (Convert.ToInt32(gender))
+            switch (Convert.ToInt32(keyGender))
             {
                 case 0:
                     gender = Gender.Male;
@@ -128,6 +128,7 @@ namespace Laba1
             }
             return new Person(name, lastName, age, gender);
         }
+
         /// <summary>
         /// Вывод персоны
         /// </summary>
@@ -161,12 +162,14 @@ namespace Laba1
                 Console.WriteLine();
             }
         }
-       /// <summary>
-       /// Метод проверки имени и фамилиии
-       /// </summary>
-       /// <param name="message">Информация для пользователя</param>
-       /// <returns>Проверяет строку</returns>
-        public static string GetCorrectString (string message)
+
+        //TODO: RSDN - именование (поменяла)
+        /// <summary>
+        /// Метод проверки имени и фамилиии
+        /// </summary>
+        /// <param name="message">Информация для пользователя</param>
+        /// <returns>Корректные фамилию и имя</returns>
+        public static string CheckCorrectnessOfNames(string message)
         {
             while (true)
             {
@@ -181,6 +184,7 @@ namespace Laba1
                 }
             }
         }
+
         /// <summary>
         /// Проверка возраста
         /// </summary>
@@ -194,7 +198,7 @@ namespace Laba1
                 {
                     Console.Write(message);
                     var age = Convert.ToInt32(NumbersFromConsole());
-                    return age;
+                    return Person.CheckAge(age);
                 }
                 catch (Exception e)
                 {
@@ -202,6 +206,24 @@ namespace Laba1
                 }
             }
         }
+
+        public static int GetCorrectGender(string message)
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write(message);
+                    var gender = Convert.ToInt32(NumbersFromConsole());
+                    return gender;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Ошибка:{e.Message}");
+                }
+            }
+        }
+
         /// <summary>
         /// Запрет на ввод букв
         /// </summary>
@@ -211,25 +233,25 @@ namespace Laba1
             string result = "";
             while (true)
             {
-                var k = Console.ReadKey(true);
-                switch (k.Key)
+                var readKey = Console.ReadKey(true);
+                switch (readKey.Key)
                 {
                     case ConsoleKey.Backspace:
                         if (result.Length > 0)
                         {
                             result = result.Remove(startIndex: result.Length - 1,
                                 count: 1);
-                            Console.Write(value: $"{k.KeyChar} {k.KeyChar}");
+                            Console.Write(value: $"{readKey.KeyChar} {readKey.KeyChar}");
                         }
                         break;
                     case ConsoleKey.Enter:
                         Console.WriteLine();
                         return result;
                     default:
-                        if (char.IsDigit(c: k.KeyChar))
+                        if (char.IsDigit(c: readKey.KeyChar))
                         {
-                            Console.Write(value: k.KeyChar);
-                            result += k.KeyChar;
+                            Console.Write(value: readKey.KeyChar);
+                            result += readKey.KeyChar;
                         }
                         break;
                 }

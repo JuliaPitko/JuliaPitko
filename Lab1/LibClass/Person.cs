@@ -11,11 +11,14 @@ namespace LibClass
     /// </summary>
     public class Person
     {
-        //TODO: RSDN
+        //TODO: XML добавлены комментарии
+        /// <summary>
+        /// Имя человека
+        /// </summary>
         private string _name;
 
         /// <summary>
-        /// Имя человека
+        /// Свойство имя
         /// </summary>
         public string Name
         {
@@ -30,12 +33,15 @@ namespace LibClass
             }
         }
 
-        //TODO: RSDN//TODO: XML
+        //TODO: RSDN//TODO: XML добавлены комментарии
+        /// <summary>
+        /// Фамилия
+        /// </summary>
         private string _lastName;
 
         /// <summary>
         /// Фамилия человека
-        /// </summary> возвращает фамилию человка </summary>
+        /// </summary> 
         public string LastName
         {
             get
@@ -49,7 +55,10 @@ namespace LibClass
             }
         }
 
-        //TODO: XML//TODO: RSDN
+        //TODO: XML//TODO: RSDN добавлены комментарии
+        /// <summary>
+        /// Возраст
+        /// </summary>
         private int _age;
 
         /// <summary>
@@ -63,30 +72,22 @@ namespace LibClass
             }
             set
             {
-                //TODO: Ограничение сверху
-                if (value < 0 || value >= 125)
-                {
-                    throw new ArgumentOutOfRangeException(
-                        $"{nameof(value)} Возраст от 0 до 125!");
-                }
-                _age = value;
+                _age = CheckAge(value);
             }
         }
         
-        //TODO: XML
         /// <summary>
         /// Свойство пол
         /// </summary> 
         public Gender Gender { get; set; } 
 
-        //TODO: XML
-       /// <summary>
-       /// Конструктор класса
-       /// </summary>
-       /// <param name="firstName">Параметр имени</param>
-       /// <param name="lastName">Параметр фамилии</param>
-       /// <param name="age">Параметр возраста</param>
-       /// <param name="gender">Параметр пол</param>
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="firstName">Параметр имени</param>
+        /// <param name="lastName">Параметр фамилии</param>
+        /// <param name="age">Параметр возраста</param>
+        /// <param name="gender">Параметр пол</param>
         public Person(string firstName, string lastName, int age, Gender gender)
         {
             Name = firstName;
@@ -107,13 +108,14 @@ namespace LibClass
                     Gender + "."; ;
             }
         }
+
+        /// <summary>
+        /// Проверка использования русского и английского алфавита
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>Корректную строку</returns>
         public static string CheckCorrectOfName (string value)
         {
-            /*if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException(
-                      string.Format("{0} is null or empty!", value));
-            }*/
             if (value == string.Empty)
             {
                 throw new Exception("Необходимо ввести данные!");
@@ -139,6 +141,12 @@ namespace LibClass
                 }
             }
         }
+
+        /// <summary>
+        /// Проверка регистра имени
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>Верный регистр</returns>
         public string CheckRegister(string value)
         {
             string FirstLetterToUpper(string word)
@@ -160,6 +168,28 @@ namespace LibClass
                 }
             }
             return FirstLetterToUpper(value);
+        }
+
+       /// <summary>
+       /// ПРоверка возраста человека
+       /// </summary>
+       /// <param name="age"> Введенный возраст</param>
+       /// <returns>Корректное значение</returns>
+        public static int CheckAge(int age)
+        {
+            {
+                if (age <= 0)
+                {
+                    throw new ArgumentException("Возраст должен быть" +
+                        "положительным");
+                }
+                if(age > 125)
+                {
+                    throw new ArgumentException("Возраст не должен быть" + 
+                        "больше 125");
+                }
+                return age;
+            }
         }
     }
 }

@@ -5,14 +5,11 @@ using System.Text;
 
 namespace LibClass
 {
-    //TODO: XML
     /// <summary>
     /// Класс списка персон
     /// </summary>
     public class PersonList
     {
-        //TODO: XML
-        //TODO: RSDN
         /// <summary>
         /// Список людей
         /// </summary>
@@ -21,7 +18,7 @@ namespace LibClass
         /// <summary>
         /// Добавление нового человека
         /// </summary>
-        /// <param name="person"></param>
+        /// <param name="person">Человек</param>
         public void AddPerson (Person person)
         {
             int NumberofPerson = _personArray.Length;
@@ -41,7 +38,7 @@ namespace LibClass
         /// <summary>
         /// Добавление массива людей
         /// </summary>
-        /// <param name="persons"></param>
+        /// <param name="persons">Массив людей</param>
         public void AddRangePeople(Person[] persons)
         {
             foreach (Person person in persons)
@@ -51,7 +48,7 @@ namespace LibClass
         }
 
         /// <summary>
-        /// Удаление всех элемпентов списака и по индексу
+        /// Удаление всех элементов списка и по индексу
         /// </summary>
         public void DeleteAllPerson()
         {
@@ -61,9 +58,10 @@ namespace LibClass
         /// <summary>
         /// Удаление определенного человека
         /// </summary>
-        /// <param name="index"></param>
+        /// <param name="index">Индекс человека в списке</param>
         public void DeletePerson(int index)
         {
+            //TODO: Проверка на диапазон
             for (int i=index;  i< _personArray.Length-1; i++)
             {
                 _personArray[i] = _personArray[i + 1];
@@ -71,16 +69,17 @@ namespace LibClass
             Array.Resize(ref _personArray, _personArray.Length-1);
         }
 
+        //TODO: RSDN добавлены комментарии
         /// <summary>
         /// Поиск элемента по индексу, 
         /// </summary>
-        /// <param name="ind"></param>
-        /// <returns></returns> возвращает значение по указанному индексу
-        public Person GetByIndex (int ind)
+        /// <param name="index">Индекс человека</param>
+        /// <returns>возвращает значение по указанному индексу</returns> 
+        public Person GetByIndex (int index)
         {
-            if (0 <= ind && ind < _personArray.Length)
+            if (0 <= index && index < _personArray.Length)
             {
-                return _personArray[ind];
+                return _personArray[index];
             }
             else
             {
@@ -88,11 +87,12 @@ namespace LibClass
             }
                
         }
+
         /// <summary>
         /// Нахождение индекса по элементу
         /// </summary>
-        /// <param name="person"></param>
-        /// <returns></returns>
+        /// <param name="person">Человек</param>
+        /// <returns>Индекс человека</returns>
         public int IndexOf(Person person)
         {
             for (int i = 0; i < _personArray.Length; i++)
@@ -107,6 +107,7 @@ namespace LibClass
             }
             return -1;
         }
+
         /// <summary>
         /// Количество человек
         /// </summary>
@@ -119,6 +120,10 @@ namespace LibClass
             
         }
 
+        /// <summary>
+        /// Информация о человеках
+        /// </summary>
+        /// <returns>массив персональных данных</returns>
         public string[] InfoAboutAllPerson()
         {
             string[] array = new string[_personArray.Length];

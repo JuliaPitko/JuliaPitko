@@ -7,6 +7,10 @@ namespace LibClass
 {
     public class RandomPerson
     {
+       /// <summary>
+       /// Генерирует данные человека
+       /// </summary>
+       /// <returns>Персону с данными</returns>
         public static Person GetRandomPerson()
         {
             string[] maleFirstName = new string []
