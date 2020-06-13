@@ -9,7 +9,7 @@ namespace LibClass
     /// <summary>
     /// Класс содержит параметры человека
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя человека
@@ -17,7 +17,7 @@ namespace LibClass
         private string _name;
 
         /// <summary>
-        /// Свойство имя
+        /// Свойство поля имя
         /// </summary>
         public string Name
         {
@@ -56,38 +56,36 @@ namespace LibClass
         /// <summary>
         /// Возраст
         /// </summary>
-        private int _age;
+        protected int _age;
 
         /// <summary>
         /// Возраст человека
-        /// </summary> проверяет возраст на границу </summary>  
-        public int Age
+        /// </summary>  
+        public abstract int Age
         {
-            get 
-            {
-                return _age;
-            }
-            set
-            {
-                _age = CheckAge(value);
-            }
+            get; set; 
         }
         
         /// <summary>
         /// Свойство пол
         /// </summary> 
-        public Gender Gender { get; set; } 
+        public Gender Gender { get; set; }
+
+        /// <summary>
+        /// Пустой конструктор персона
+        /// </summary>
+        public PersonBase() { }
 
         /// <summary>
         /// Конструктор класса
         /// </summary>
-        /// <param name="firstName">Параметр имени</param>
+        /// <param name="name">Параметр имени</param>
         /// <param name="lastName">Параметр фамилии</param>
         /// <param name="age">Параметр возраста</param>
         /// <param name="gender">Параметр пол</param>
-        public Person(string firstName, string lastName, int age, Gender gender)
+        public PersonBase(string name, string lastName, int age, Gender gender)
         {
-            Name = firstName;
+            Name = name;
             LastName = lastName;
             Age = age;
             Gender = gender;
@@ -96,14 +94,11 @@ namespace LibClass
         /// <summary>
         /// Информация о человеке
         /// </summary>
-        public string Info
+        /// <returns>строка с базовыми данными</returns>
+        public virtual string Info()
         {
-            get
-            {
-                return "Имя: " + Name + ".\tФамилия: " +
-                    LastName + ".   \tВозраст: " + Age + ".\tПол: " +
-                    Gender + "."; ;
-            }
+            return $"Name: {Name}\nLastName: {LastName}\n" +
+                   $"Age: {Age}\nGender:{Gender}";
         }
 
         /// <summary>
@@ -165,28 +160,6 @@ namespace LibClass
                 }
             }
             return FirstLetterToUpper(value);
-        }
-
-       /// <summary>
-       /// ПРоверка возраста человека
-       /// </summary>
-       /// <param name="age"> Введенный возраст</param>
-       /// <returns>Корректное значение</returns>
-        public static int CheckAge(int age)
-        {
-            {
-                if (age <= 0)
-                {
-                    throw new ArgumentException("Возраст должен быть" +
-                        "положительным");
-                }
-                if(age > 125)
-                {
-                    throw new ArgumentException("Возраст не должен быть" + 
-                        "больше 125");
-                }
-                return age;
-            }
         }
     }
 }

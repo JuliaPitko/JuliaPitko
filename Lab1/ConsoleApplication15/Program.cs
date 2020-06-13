@@ -163,7 +163,6 @@ namespace Laba1
             }
         }
 
-        //TODO: RSDN - именование (поменяла)
         /// <summary>
         /// Метод проверки имени и фамилиии
         /// </summary>
@@ -207,6 +206,7 @@ namespace Laba1
             }
         }
 
+        //TODO: XML
         public static int GetCorrectGender(string message)
         {
             while (true)
@@ -237,23 +237,31 @@ namespace Laba1
                 switch (readKey.Key)
                 {
                     case ConsoleKey.Backspace:
+                    {
                         if (result.Length > 0)
                         {
                             result = result.Remove(startIndex: result.Length - 1,
                                 count: 1);
                             Console.Write(value: $"{readKey.KeyChar} {readKey.KeyChar}");
                         }
+
                         break;
+                    }
                     case ConsoleKey.Enter:
+                    {
                         Console.WriteLine();
                         return result;
+                    }
                     default:
+                    {
                         if (char.IsDigit(c: readKey.KeyChar))
                         {
                             Console.Write(value: readKey.KeyChar);
                             result += readKey.KeyChar;
                         }
+
                         break;
+                    }
                 }
             }
 

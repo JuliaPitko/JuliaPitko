@@ -13,24 +13,33 @@ namespace LibClass
         /// <summary>
         /// Список людей
         /// </summary>
-        private Person[] _personArray = new Person[0];
+        private PersonBase[] _personArray;
+
+        /// <summary>
+        /// Конструктор для пустого списка людей
+        /// </summary>
+        public PersonList()
+        {
+            _personArray = new PersonBase[0];
+        }
 
         /// <summary>
         /// Добавление нового человека
         /// </summary>
         /// <param name="person">Человек</param>
-        public void AddPerson (Person person)
+        public void AddPerson (PersonBase person)
         {
-            int NumberofPerson = _personArray.Length;
+            //TODO: RSDN исправлено
+            int numberofPerson = _personArray.Length;
 
-            Person[] newArray = new Person[NumberofPerson + 1];
+            PersonBase[] newArray = new PersonBase[numberofPerson + 1];
 
-            for (int i = 0; i < NumberofPerson; i++)
+            for (int i = 0; i < numberofPerson; i++)
             {
                 newArray[i] = this._personArray[i];
             }
 
-            newArray[NumberofPerson] = person;
+            newArray[numberofPerson] = person;
 
             _personArray = newArray;
         }
@@ -39,9 +48,9 @@ namespace LibClass
         /// Добавление массива людей
         /// </summary>
         /// <param name="persons">Массив людей</param>
-        public void AddRangePeople(Person[] persons)
+        public void AddRangePeople(PersonBase[] persons)
         {
-            foreach (Person person in persons)
+            foreach (PersonBase person in persons)
             {
                 AddPerson(person);
             }
@@ -73,17 +82,19 @@ namespace LibClass
         /// </summary>
         /// <param name="index">Индекс человека</param>
         /// <returns>возвращает значение по указанному индексу</returns> 
-        public Person GetByIndex (int index)
+        public PersonBase this [int index]
         {
-            if (0 <= index && index < _personArray.Length)
+            get
             {
-                return _personArray[index];
+                if (0 <= index && index < _personArray.Length)
+                {
+                    return _personArray[index];
+                }
+                else
+                {
+                    throw new ArgumentException("Такого элемента нет");
+                }
             }
-            else
-            {
-                throw new ArgumentException("Такого элемента нет");
-            }
-               
         }
 
         /// <summary>
@@ -91,7 +102,7 @@ namespace LibClass
         /// </summary>
         /// <param name="person">Человек</param>
         /// <returns>Индекс человека</returns>
-        public int IndexOf(Person person)
+        public int IndexOf(PersonBase person)
         {
             for (int i = 0; i < _personArray.Length; i++)
             {
@@ -118,19 +129,5 @@ namespace LibClass
             
         }
 
-        /// <summary>
-        /// Информация о человеках
-        /// </summary>
-        /// <returns>массив персональных данных</returns>
-        public string[] InfoAboutAllPerson()
-        {
-            string[] array = new string[_personArray.Length];
-            for (int i = 0; i < _personArray.Length; i++)
-            {
-                array[i] = _personArray[i].Info;
-            }
-            return array;
-        }
-       
     }
 }
