@@ -21,7 +21,6 @@ namespace LibClass
             }
             set
             {
-                //TODO: добавила возраст до 17 
                 if (!(value <= 17))
                 {
                     throw new ArgumentOutOfRangeException(

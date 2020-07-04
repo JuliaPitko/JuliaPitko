@@ -13,7 +13,7 @@ namespace Laba2
     public class Program
     {
        
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Нажмите любую клавишу для работы");
             Console.WriteLine("");
@@ -40,7 +40,7 @@ namespace Laba2
             Console.ReadKey();
 
             Console.WriteLine("Четвертая персона в списке");
-            //TODO: взрослый пьёт пиво, ребенок молочный коктейль
+
             switch (persons[3])
             {
                 case Adult adult:

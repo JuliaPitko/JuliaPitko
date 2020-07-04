@@ -29,7 +29,6 @@ namespace LibClass
         /// <param name="person">Человек</param>
         public void AddPerson (PersonBase person)
         {
-            //TODO: RSDN исправлено
             int numberofPerson = _personArray.Length;
 
             PersonBase[] newArray = new PersonBase[numberofPerson + 1];

@@ -21,7 +21,6 @@ namespace LibClass
             }
             set
             {
-                //TODO: добавила границу с 18
                 if (!(18 < value) && !(value <= 128))
                 {
                     throw new ArgumentOutOfRangeException(
