@@ -7,8 +7,15 @@ using FitnessModel;
 
 namespace TestingApp
 {
+    /// <summary>
+    /// Тестирующий класс
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// точка вхождения в программу
+        /// </summary>
+        /// <param name="args">аргументы</param>
         static void Main(string[] args)
         {
             while (true)
@@ -23,6 +30,10 @@ namespace TestingApp
             }
         }
 
+        /// <summary>
+        /// Выбор вида спорта
+        /// </summary>
+        /// <returns></returns>
         private static ActionsBase ChooseActionsType()
         {
             while (true)

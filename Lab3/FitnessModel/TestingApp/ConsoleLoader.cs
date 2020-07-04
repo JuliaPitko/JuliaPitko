@@ -7,8 +7,15 @@ using FitnessModel;
 
 namespace TestingApp
 {
+    /// <summary>
+    /// Ввод параметров расчёта
+    /// </summary>
     public static class ConsoleLoader
     {
+       /// <summary>
+       /// Ввод параметров для бега
+       /// </summary>
+       /// <returns>параметры</returns>
         public static Run EnterRunParameters()
         {
             var actionParameters = new Run();
@@ -43,6 +50,10 @@ namespace TestingApp
             return actionParameters;
         }
 
+       /// <summary>
+       /// Ввод параметров жима лежа
+       /// </summary>
+       /// <returns>параметры</returns>
         public static BenchPress EnterBenchPressParameters()
         {
             var actionParameters = new BenchPress();
@@ -77,6 +88,10 @@ namespace TestingApp
             return actionParameters;
         }
 
+        /// <summary>
+        /// Ввод параметров плавания
+        /// </summary>
+        /// <returns>параметры</returns>
         public static Swimming EnterSwimmingParameters()
         {
             var actionParameters = new Swimming();
@@ -114,6 +129,10 @@ namespace TestingApp
             return actionParameters;
         }
 
+       /// <summary>
+       /// Ввод дробного числа с консоли
+       /// </summary>
+       /// <returns>введенное число</returns>
         private static double EnterDoubleValue()
         {
             var buffer = double.Parse(Console.ReadLine().Replace('.', ','));
@@ -121,6 +140,10 @@ namespace TestingApp
             return buffer;
         }
 
+        /// <summary>
+        /// Ввод типа плавания
+        /// </summary>
+        /// <returns>калории при данном типе</returns>
         private static double ChooseSwimmingStyle()
         {
             var style = int.Parse(Console.ReadLine());
@@ -140,6 +163,10 @@ namespace TestingApp
             return kkal;
         }
 
+        /// <summary>
+        /// Задание значения
+        /// </summary>
+        /// <param name="action">делегат с заданием параметраы</param>
         public static void SetValue(Action action)
         {
             while (true)

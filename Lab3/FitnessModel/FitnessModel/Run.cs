@@ -32,6 +32,13 @@ namespace FitnessModel
             }
         }
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="intensive">интенсивность</param>
+        /// <param name="weightPerson">вес человека</param>
+        /// <param name="time">время</param>
+        /// <param name="distanceOrWeight">дистанция</param>
         public Run
         (
          double intensive,

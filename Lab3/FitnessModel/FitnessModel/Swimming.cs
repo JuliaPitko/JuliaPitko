@@ -16,7 +16,18 @@ namespace FitnessModel
         /// <summary>
         /// Калории зависящие от стиля
         /// </summary>
-        public double Kkal { get; set; }
+        public double Kkal 
+        {
+            get
+            {
+                return _kkal;
+            }
+
+            set
+            {
+                _kkal = ValueChecking(value);
+            }
+        }
 
         /// <summary>
         /// конструктор
@@ -24,6 +35,7 @@ namespace FitnessModel
         /// <param name="distanceOrWeight">расстояние</param>
         /// <param name="weightPerson">вес человека</param>
         /// <param name="time">время заплыва</param>
+        /// <param name="kkal">калории</param>
         public Swimming
         (
         double distanceOrWeight,
@@ -43,6 +55,10 @@ namespace FitnessModel
        /// </summary>
         public Swimming() { }
 
+        /// <summary>
+        /// Расчёт калорий
+        /// </summary>
+        /// <returns>калории</returns>
         public override double KkalCalculation()
         {
             return  (DistanceOrWeight/ WeightPerson) * Kkal * Time;
