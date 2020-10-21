@@ -146,15 +146,15 @@ namespace FitnessView
             EventArgs e)
         {
             //TODO Дублирование:исправлено
-            if ((sender as RadioButton).Name.Contains("Run"))
+            if (sender == RadioButtonRun)
             {
                 _action = new Run();
             } 
-            else if ((sender as RadioButton).Name.Contains("Swimming"))
+            else if (sender == RadioButtonSwimming)
             {
                 _action = new Swimming();
             }
-            else if ((sender as RadioButton).Name.Contains("BenchPress"))
+            else if (sender == RadioButtonBenchPress)
             {
                 _action = new BenchPress();
             }
@@ -185,37 +185,37 @@ namespace FitnessView
         /// <param name="e"></param>
         private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if ((sender as NumericUpDown).Name.Contains("Weight"))
+            if (sender == numericUpDownWeight)
             {
                 _action.WeightPerson = Convert.ToDouble(
                numericUpDownWeight.Value);
             }
 
-            else if ((sender as NumericUpDown).Name.Contains("Time"))
+            else if (sender == numericUpDownTime)
             {
                 _action.Time = Convert.ToDouble(
                 numericUpDownTime.Value);
             }
 
-            else if ((sender as NumericUpDown).Name.Contains("Intensive"))
+            else if (sender == numericUpDownIntensive)
             {
                 (_action as Run).Intensive = Convert.ToDouble(
                 numericUpDownIntensive.Value);
             }
 
-            else if ((sender as NumericUpDown).Name.Contains("Distance"))
+            else if (sender == numericUpDownDistance)
             {
                 _action.DistanceOrWeight = Convert.ToDouble(
                 numericUpDownDistance.Value);
             }
 
-            else if ((sender as NumericUpDown).Name.Contains("Podxody"))
+            else if (sender == numericUpDownPodxody)
             {
                 (_action as BenchPress).Iteration = Convert.ToDouble(
                 numericUpDownPodxody.Value);
             }
 
-            else if ((sender as NumericUpDown).Name.Contains("Girya"))
+            else if (sender == numericUpDownGirya)
             {
                 _action.DistanceOrWeight = Convert.ToDouble(
                 numericUpDownGirya.Value);
