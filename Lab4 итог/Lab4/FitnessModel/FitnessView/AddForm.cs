@@ -179,24 +179,6 @@ namespace FitnessView
         }
 
         /// <summary>
-        /// Изменение значения типа плавания
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ComboBoxSwimmingStyles_SelectedIndexChanged(
-            object sender, EventArgs e)
-        {
-            if (_action is Swimming)
-            {
-                (_action as Swimming).SwimmingEnum = 
-                    (SwimmingEnum)(ComboBoxSwimmingStyles.SelectedIndex + 1);
-
-                TextBoxResult.Text = 
-                    _action.KkalCalculation.ToString("0.00");
-            }
-        }
-
-        /// <summary>
         /// Заполнение параметров
         /// </summary>
         /// <param name="sender"></param>
@@ -241,5 +223,24 @@ namespace FitnessView
 
             TextBoxResult.Text = _action.KkalCalculation.ToString("0.00");
         }
+
+        /// <summary>
+        /// Изменение значения типа плавания
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboBoxSwimmingStyles_SelectedIndexChanged(
+            object sender, EventArgs e)
+        {
+            if (_action is Swimming)
+            {
+                (_action as Swimming).SwimmingEnum =
+                    (SwimmingEnum)(ComboBoxSwimmingStyles.SelectedIndex + 1);
+
+                TextBoxResult.Text =
+                    _action.KkalCalculation.ToString("0.00");
+            }
+        }
+
     }
 }

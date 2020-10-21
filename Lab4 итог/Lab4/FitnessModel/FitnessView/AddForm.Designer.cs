@@ -113,6 +113,7 @@
             this.RadioButtonSwimming.TabIndex = 10;
             this.RadioButtonSwimming.Text = "Плавание";
             this.RadioButtonSwimming.UseVisualStyleBackColor = true;
+            this.RadioButtonSwimming.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // RadioButtonBenchPress
             // 
@@ -124,6 +125,7 @@
             this.RadioButtonBenchPress.TabIndex = 11;
             this.RadioButtonBenchPress.Text = "Жим штанги";
             this.RadioButtonBenchPress.UseVisualStyleBackColor = true;
+            this.RadioButtonBenchPress.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -252,6 +254,7 @@
             this.numericUpDownTime.Name = "numericUpDownTime";
             this.numericUpDownTime.Size = new System.Drawing.Size(181, 22);
             this.numericUpDownTime.TabIndex = 26;
+            this.numericUpDownTime.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // numericUpDownWeight
             // 
@@ -301,6 +304,7 @@
             this.numericUpDownDistance.Name = "numericUpDownDistance";
             this.numericUpDownDistance.Size = new System.Drawing.Size(181, 22);
             this.numericUpDownDistance.TabIndex = 25;
+            this.numericUpDownDistance.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // numericUpDownIntensive
             // 
@@ -314,6 +318,7 @@
             this.numericUpDownIntensive.Name = "numericUpDownIntensive";
             this.numericUpDownIntensive.Size = new System.Drawing.Size(175, 22);
             this.numericUpDownIntensive.TabIndex = 26;
+            this.numericUpDownIntensive.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // numericUpDownPodxody
             // 
@@ -327,6 +332,7 @@
             this.numericUpDownPodxody.Name = "numericUpDownPodxody";
             this.numericUpDownPodxody.Size = new System.Drawing.Size(175, 22);
             this.numericUpDownPodxody.TabIndex = 27;
+            this.numericUpDownPodxody.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // numericUpDownGirya
             // 
@@ -340,6 +346,7 @@
             this.numericUpDownGirya.Name = "numericUpDownGirya";
             this.numericUpDownGirya.Size = new System.Drawing.Size(183, 22);
             this.numericUpDownGirya.TabIndex = 28;
+            this.numericUpDownGirya.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // AddForm
             // 
