@@ -1,0 +1,10 @@
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Лаб4 итог\Lab3\FitnessModel\FitnessModel\bin\Debug\FitnessModel.dll
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Лаб4 итог\Lab3\FitnessModel\FitnessModel\bin\Debug\FitnessModel.pdb
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Лаб4 итог\Lab3\FitnessModel\FitnessModel\obj\Debug\FitnessModel.csprojAssemblyReference.cache
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Лаб4 итог\Lab3\FitnessModel\FitnessModel\obj\Debug\FitnessModel.dll
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Лаб4 итог\Lab3\FitnessModel\FitnessModel\obj\Debug\FitnessModel.pdb
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Lab4 итог\Lab3\FitnessModel\FitnessModel\bin\Debug\FitnessModel.dll
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Lab4 итог\Lab3\FitnessModel\FitnessModel\bin\Debug\FitnessModel.pdb
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Lab4 итог\Lab3\FitnessModel\FitnessModel\obj\Debug\FitnessModel.csprojAssemblyReference.cache
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Lab4 итог\Lab3\FitnessModel\FitnessModel\obj\Debug\FitnessModel.dll
+C:\Users\sanya\Desktop\Калентьев\JuliaPitko\Lab4 итог\Lab3\FitnessModel\FitnessModel\obj\Debug\FitnessModel.pdb
