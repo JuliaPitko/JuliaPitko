@@ -338,3 +338,12 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Lab4 итог/Lab3/FitnessModel/ConsoleLoader/ConsoleLoader.csproj
+/Lab4 итог/Lab3/FitnessModel/ConsoleLoader/Program.cs
+/Lab4 итог/Lab3/FitnessModel/FitnessModel.sln
+/Lab4 итог/Lab3/FitnessModel/FitnessModel/ActionsBase.cs
+/Lab4 итог/Lab3/FitnessModel/FitnessModel/Swimming.cs
+/Lab4 итог/Lab3/FitnessModel/FitnessModel/Run.cs
+/Lab4 итог/Lab3/FitnessModel/FitnessModel/Properties/AssemblyInfo.cs
+/Lab4 итог/Lab3/FitnessModel/FitnessModel/FitnessModel.csproj
+/Lab4 итог/Lab3/FitnessModel/FitnessModel/BenchPress.cs
